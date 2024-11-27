@@ -1,0 +1,12 @@
+train: C:\Users\tuana\OneDrive\Newfolder\train
+val: C:\Users\tuana\OneDrive\Newfolder\valid
+
+nc: 1
+names: ['enemy']
+
+roboflow:
+  workspace: yoloarsenal
+  project: arsenalpurple
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/yoloarsenal/arsenalpurple/dataset/1
