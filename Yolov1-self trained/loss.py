@@ -70,11 +70,15 @@ class SumSquaredErrorLoss(nn.Module):
             torch.zeros_like(max_iou),
             reduction="sum"
         )
+        class_losses = F.mse_loss(
+            obj_i * preds[..., :config.C],
+            obj_i * targets[..., :config.C]
+        )
         #print('noobj_confidence_losses',self.l_noobj * noobj_confidence_losses)
         #print('dim_losses',self.l_coord * dim_losses)
         #print('pos_losses', 3 * pos_losses)
         #print('obj_confidence_losses', obj_confidence_losses)
         # Tổng loss
         total = self.l_coord * (dim_losses) + 3 * pos_losses + obj_confidence_losses \
-                + self.l_noobj * noobj_confidence_losses
+                + self.l_noobj * noobj_confidence_losses + class_losses
         return total / config.BATCH_SIZE

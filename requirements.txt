@@ -1,0 +1,6 @@
+opencv-python
+mss
+numpy
+ultralytics
+mousekey
+pyautogui
